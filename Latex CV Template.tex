@@ -1,0 +1,107 @@
+% Contenu générique pour un CV en français
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage{graphicx} % Package to inclure images
+
+\definecolor{primarycolor}{RGB}{0,91,150}
+\definecolor{linecolor}{RGB}{200,200,200}
+
+\titleformat{\section}{\color{primarycolor}\Large\bfseries}{\thesection}{1em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{*0.5}{*0.5}
+\newenvironment{smallerfont}{\small}{}
+\newcommand{\cvitem}[2]{\textbf{#1}#2\\}
+
+% Define column widths
+\newlength{\leftcolwidth}
+\newlength{\rightcolwidth}
+\setlength{\leftcolwidth}{0.35\textwidth}
+\setlength{\rightcolwidth}{0.62\textwidth}
+\pagenumbering{gobble}
+
+\newcommand{\sectiontitle}[1]{%
+  \vspace{0.5em}
+  \textcolor{primarycolor}{\Large\textbf{#1}}%
+  \par\vspace{-0.3em}%
+  \textcolor{primarycolor}{\rule{\linewidth}{0.4pt}}%
+  \vspace{0.3em}%
+}
+
+\begin{document}
+
+% En-tête avec le nom et titre générique
+\vspace*{-0.3cm}
+\noindent\begin{minipage}[t]{0.75\textwidth}
+\color{primarycolor}\Huge\textbf{NOM PRÉNOM}\\[0.1em]
+\large Titre Professionnel (ex. Développeur FullStack, Chef de Projet IT)
+\end{minipage}%
+
+% Ajout d'une photo (optionnelle)
+\begin{tikzpicture}[remember picture, overlay]
+\node[anchor=north east, xshift=-1.5cm, yshift=0cm] at (current page.north east) {\includegraphics[width=103.5pt, height=105pt]{profile.png}};
+\end{tikzpicture}
+
+\noindent\begin{minipage}[t]{\leftcolwidth}
+\sectiontitle{\faIcon{address-book} CONTACT}
+\cvitem{\faIcon{phone}}{ +33 6 12 34 56 78}
+\cvitem{\faIcon{envelope}}{ email@exemple.com}
+\cvitem{\faIcon{linkedin}}{ linkedin.com/in/exemple}
+\cvitem{\faIcon{github}}{ github.com/nom-utilisateur}
+
+\sectiontitle{\faIcon{graduation-cap} FORMATION}
+\cvitem{[20XX-20XX]}{\textbf{Diplôme/Master en Domaine}}
+\cvitem{}{Nom de l'établissement}
+\cvitem{[20XX-20XX]}{\textbf{Licence/Autre Diplôme}}
+\cvitem{}{Nom de l'établissement}
+
+\sectiontitle{\faIcon{certificate} CERTIFICATIONS}
+\cvitem{}{\textbf{- Titre de certification 1}}
+\cvitem{}{\textbf{- Titre de certification 2}}
+
+\sectiontitle{\faIcon{cogs} COMPÉTENCES}
+\cvitem{Programmation :}{Langages ici (ex. Java, Python, JavaScript, etc.)}
+\cvitem{Frameworks :}{Ex. Spring, React, Angular}
+\cvitem{Bases de données :}{Ex. MySQL, PostgreSQL}
+\cvitem{Outils :}{Ex. Docker, Git, Jenkins}
+\cvitem{Logiciels :}{Ex. Adobe Photoshop, Pack Office}
+
+\sectiontitle{\faIcon{language} LANGUES}
+\cvitem{Français :}{ Courant}
+\cvitem{Anglais :}{ Professionnel}
+\cvitem{Autre langue :}{ Niveau (ex. intermédiaire)}
+
+\end{minipage}%
+\hfill%
+\begin{tikzpicture}[overlay]
+    \draw[color=linecolor] (0,0) -- (0,-25.8);
+\end{tikzpicture}%
+\hfill%
+\begin{minipage}[t]{\rightcolwidth}
+\sectiontitle{\faIcon{briefcase} EXPÉRIENCES PROFESSIONNELLES}
+\begin{smallerfont}
+\cvitem{[Mois Année - Mois Année]}{\textbf{Poste occupé — Nom de l'entreprise}}
+Description des responsabilités et tâches :
+\begin{itemize}[leftmargin=*,nosep]
+\item Réalisation 1
+\item Réalisation 2
+\item Technologies utilisées : Liste des outils/technologies \\
+\end{itemize}
+
+\cvitem{[Mois Année - Mois Année]}{\textbf{Stage/Projet — Nom de l'entreprise}}
+Description du projet :
+\begin{itemize}[leftmargin=*,nosep]
+\item Détail 1
+\item Détail 2
+\item Technologies utilisées : Liste des outils/technologies
+\end{itemize}
+\end{smallerfont}
+
+\end{minipage}
+
+\end{document}
